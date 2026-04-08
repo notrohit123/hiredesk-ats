@@ -13,7 +13,7 @@ import Pricing from './pages/Pricing'
 import Success from './pages/Success'
 
 const YORCO_SDK_URL = 'https://api.yorco.ai/api/widget/sdk.js'
-const YORCO_API_KEY = 'pk_4ff2193ee67bc5f4b2093059dd7abeb29fd9edad12ce04af'
+const YORCO_API_KEY = 'pk_4ff2193ee67bc5f4b2093659dd7abeb29fd9edad12ce04af'
 
 // Widget shows on every page — this is a demo SaaS app with no auth
 // pages to exclude. The widget loads once on first render and stays
