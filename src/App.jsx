@@ -12,9 +12,8 @@ import Reports from './pages/Reports'
 import Pricing from './pages/Pricing'
 import Success from './pages/Success'
 
-const YORCO_SDK_URL = 'https://yorcoapi-production.up.railway.app/api/widget/sdk.js'
-// Placeholder key — swap with the real HireDesk tenant key once created in Yorco
-const YORCO_API_KEY = 'pk_xxx'
+const YORCO_SDK_URL = 'https://api.yorco.ai/api/widget/sdk.js'
+const YORCO_API_KEY = 'pk_4ff2193ee67bc5f4b2093059dd7abeb29fd9edad12ce04af'
 
 // Widget only appears on in-app pages where a prospect would naturally
 // explore the product. Marketing pages (landing, pricing, features) stay
