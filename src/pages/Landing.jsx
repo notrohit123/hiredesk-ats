@@ -121,7 +121,7 @@ function Landing() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
             <Link
-              to="/app"
+              to="/signup"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_0_40px_-8px_rgba(99,102,241,0.55)] transition hover:bg-indigo-400 sm:w-auto"
             >
               Try Free
@@ -231,7 +231,7 @@ function Landing() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
             <Link
-              to="/app"
+              to="/signup"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-500 px-8 py-3.5 text-base font-semibold text-white shadow-[0_0_40px_-8px_rgba(99,102,241,0.55)] transition hover:bg-indigo-400 sm:w-auto"
             >
               Get Started Free

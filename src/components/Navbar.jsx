@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom'
-import { Briefcase } from 'lucide-react'
+import { NavLink, Link } from 'react-router-dom'
+import { Briefcase, LogIn } from 'lucide-react'
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -12,8 +12,8 @@ const navItems = [
   { to: '/pricing', label: 'Pricing' },
 ]
 
-// Active link gets a solid indigo background so it pops on the dark nav bar.
-// Inactive links stay muted slate and brighten on hover.
+// active link gets a solid indigo background so it pops on the dark nav bar.
+// inactive links stay muted slate and brighten on hover.
 function linkClassName({ isActive }) {
   const base =
     'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 ' +
@@ -46,6 +46,25 @@ function Navbar() {
               {label}
             </NavLink>
           ))}
+
+          {/* auth buttons sit after the main nav links, visually
+              separated by a subtle left border to group them apart */}
+          <span className="mx-1 hidden h-6 w-px bg-white/10 sm:block" aria-hidden />
+
+          <Link
+            to="/login"
+            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+          >
+            <LogIn className="h-4 w-4" aria-hidden />
+            Log in
+          </Link>
+
+          <Link
+            to="/signup"
+            className="inline-flex items-center rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-400"
+          >
+            Sign up free
+          </Link>
         </nav>
       </div>
     </header>

@@ -18,7 +18,7 @@ const TIERS = [
     period: 'forever',
     description: 'For small teams getting started with structured hiring.',
     cta: 'link',
-    href: '/app',
+    href: '/signup',
     features: [
       'Up to 3 active jobs',
       'Basic pipeline board',
