@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Landing from './pages/Landing'
 import Features from './pages/Features'
@@ -15,42 +15,24 @@ import Success from './pages/Success'
 const YORCO_SDK_URL = 'https://api.yorco.ai/api/widget/sdk.js'
 const YORCO_API_KEY = 'pk_4ff2193ee67bc5f4b2093059dd7abeb29fd9edad12ce04af'
 
-// Widget only appears on in-app pages where a prospect would naturally
-// explore the product. Marketing pages (landing, pricing, features) stay
-// clean so the visitor isn't distracted before they engage with the product.
-const WIDGET_PATHS = ['/app', '/jobs', '/candidates', '/team', '/reports']
-
+// Widget shows on every page — this is a demo SaaS app with no auth
+// pages to exclude. The widget loads once on first render and stays
+// active across all route navigations.
 function useYorcoWidget() {
-  const { pathname } = useLocation()
   const scriptLoaded = useRef(false)
 
-  // Match exact paths and any nested sub-routes (e.g. /candidates/3)
-  const shouldShow = WIDGET_PATHS.some(
-    (p) => pathname === p || pathname.startsWith(p + '/')
-  )
-
   useEffect(() => {
-    if (!shouldShow) {
-      // Tear down the widget when navigating away from product pages
-      if (typeof window.yorco === 'function') {
-        window.yorco('destroy')
-      }
-      return
-    }
-
     function init() {
       if (typeof window.yorco === 'function') {
         window.yorco('init', { apiKey: YORCO_API_KEY, displayMode: 'push' })
       }
     }
 
-    // SDK already loaded from a previous navigation — just re-init
     if (scriptLoaded.current) {
       init()
       return
     }
 
-    // First time reaching a product page: inject the SDK script tag once
     const script = document.createElement('script')
     script.src = YORCO_SDK_URL
     script.async = true
@@ -59,7 +41,7 @@ function useYorcoWidget() {
       init()
     }
     document.body.appendChild(script)
-  }, [shouldShow])
+  }, [])
 }
 
 function App() {
